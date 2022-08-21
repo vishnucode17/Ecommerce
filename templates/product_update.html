@@ -1,0 +1,11 @@
+<form method='post'>
+    <h1>Update your products</h1>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Submit</button>
+</form>
+<style>
+    form{
+        align-items: center;
+        text-align: center;
+    }

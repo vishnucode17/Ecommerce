@@ -1,0 +1,13 @@
+.Login{
+    height: 100%;
+    width:auto;
+    align-items: center;
+}
+#login_heading{
+    text-align: center;
+}
+.Login{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

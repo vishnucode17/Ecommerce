@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppers cart</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    {% block body %}
+    <div class="header">
+        <nav>
+            <div class="logo">
+                <img id='logo_img' src="{% static 'images/logo.png' %}" alt="logo">
+            </div>
+            <div class="search">
+                <form class='search-form'>
+                <input type="text" id="search-text" placeholder="Search for products, brands and many more">
+                <button id="search-btn" class="fas fa-search fa-2x"></button>
+                </form>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="auth">
+                <button id='auth-btn'><a href="{% url 'logout' %}">Logout</a></button>
+            </div>
+            {% else %}
+            <div class="auth">
+                <button id='auth-btn'><a href="{% url 'login' %}" class="auth-btn">Login</a></button>
+            </div>
+            {% endif %}
+            <a class="fas fa-cart-plus fa-3x"></a>
+        </nav>
+    </div>
+    {% endblock %}
+    <div class="Login">
+        <h1 id='login_heading'>Sign Up</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button>Login</button>
+            <a href="{% url 'login' %}">Have an account?</a>
+        </form>
+    </div>
+</body>
+</html>

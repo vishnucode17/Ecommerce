@@ -1,0 +1,18 @@
+{% load static %}
+{% block body %}
+<div class="search_div">
+    <h1>Search Results</h1>
+</div>
+<div class="results">
+{% if search_string_length %}
+{% for item in result %}
+{{item}}
+{% endfor %}
+{% for i in product_details %}
+<img src="{% static '{{i}}' %" alt="{{i}}">
+{% endfor %}
+{% else %}
+<p>No results found</p>
+</div>
+{% endif %}
+{% endblock %}
